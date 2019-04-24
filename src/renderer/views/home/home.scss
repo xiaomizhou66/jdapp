@@ -1,0 +1,29 @@
+.home {
+    display: flex;
+
+    .left-menu {
+        width: 60px;
+        height: 100%;
+        color: rgb(241, 239, 236);
+        background:#28292c;
+
+        .item{
+            text-align: center;
+            height:80px;
+        }
+        .item img{
+            width: 40px;
+            height: 40px;
+            margin-top: 20px;
+            background: rgb(241, 239, 236);
+        }
+        .text{
+            margin-top: 5px;
+            font-size: 10px;
+        }
+    }
+
+    .right-content{
+        flex: 1;
+    }
+}
