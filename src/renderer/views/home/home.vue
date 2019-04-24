@@ -23,7 +23,9 @@
         <p class="text">申请失败</p>
       </div>
     </div>
-    <div class="right-content"></div>
+    <div class="right-content">
+      <a href="#" id="drag">item</a>
+    </div>
   </div>
 </template>
 

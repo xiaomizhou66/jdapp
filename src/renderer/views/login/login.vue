@@ -1,9 +1,10 @@
 <template>
   <div class="login wrapper">
     <div class="login-box">
-      <Form ref="login" :model="loginData" :rules="loginDataRule">
-        <div class="login-title">美妆购后台管理系统</div>
-        <FormItem prop="user">
+      <Form ref="loginForm" :model="loginData" :rules="loginDataRule">
+        <img src="../../assets/256x256.png" style="width:60px;height:60px;margin-bottom:20px;">
+        <div class="login-title">京东试用</div>
+        <FormItem prop="username">
           <Input type="text" v-model="loginData.username" placeholder="Username">
             <Icon type="ios-person-outline" slot="prepend"></Icon>
           </Input>
@@ -14,7 +15,7 @@
           </Input>
         </FormItem>
         <FormItem>
-          <Button type="primary" @click="login('login')">登录</Button>
+          <Button type="primary" @click="login('loginForm')">登录</Button>
         </FormItem>
       </Form>
     </div>
@@ -23,6 +24,7 @@
 
 <script>
 //import SystemInformation from './LandingPage/SystemInformation'
+//import axios from 'axios'
 const { ipcRenderer } = require("electron");
 
 export default {
@@ -38,6 +40,10 @@ export default {
           {
             required: true,
             message: "请输入用户名",
+            trigger: "blur"
+          },
+          {
+            type: "string",
             trigger: "blur"
           }
         ],
@@ -64,14 +70,14 @@ export default {
     //open(link) {
     //  this.$electron.shell.openExternal(link);
     //},
-    login() {
+    login(name) {
       this.$refs[name].validate(valid => {
         if (valid) {
-          axios({
-            url: "/session",
-            method: "post",
-            data: this.loginData
-          }).then(res => {
+          //axios({
+          //  url: "/session",
+          //  method: "post",
+          //  data: this.loginData
+          //}).then(res => {
             //localStorage.setItem("token", `Code ${res.data.token}`);
             //localStorage.setItem("sessionToken", JSON.stringify(res.data));
             //this.$router.push("/overview");
@@ -81,7 +87,7 @@ export default {
               console.log(arg); // prints "pong"
               this.$router.push("/");
             });
-          });
+          //});
         } else {
           this.$Message.error("用户名或者密码错误!");
         }
