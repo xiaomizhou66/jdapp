@@ -25,8 +25,8 @@ function createMainWindow() {
     show: false, //创建一个隐藏的窗口
     width: 840,
     height: 600,
-    //frame: false,
-    //transparent:true,
+    frame: false,
+    transparent:true,
     useContentSize: false, //默认 false，若使用 web 网页 size, 这意味着实际窗口的 size 应该包括窗口框架的 size，稍微会大一点，
     fullscreen: false, //默认 false（用来规定 窗口是否全屏，并且全屏之后没有缩小按钮
     //并且 false 的时候 mac 的全屏键被隐藏或者禁用，但是我希望不是全屏，并且可以方法呢？？？）
