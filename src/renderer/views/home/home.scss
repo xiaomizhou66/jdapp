@@ -1,29 +1,74 @@
 .home {
     display: flex;
+    -webkit-app-region: drag;
+    position: relative;
 
     .left-menu {
         width: 60px;
         height: 100%;
         color: rgb(241, 239, 236);
-        background:#28292c;
+        background: #28292c;
+        position: relative;
 
-        .item{
+        .item {
+            -webkit-app-region: no-drag;
             text-align: center;
-            height:80px;
+            height: 80px;
+            color: rgb(73, 40, 42);
         }
-        .item img{
+
+        .item img {
             width: 40px;
             height: 40px;
             margin-top: 20px;
             background: rgb(241, 239, 236);
         }
-        .text{
+
+        .text {
             margin-top: 5px;
             font-size: 10px;
+            color: rgb(73, 40, 42);
+        }
+
+        .text-checked {
+            color: rgb(189, 192, 243);
+        }
+
+        .foot-menu-btn {
+            -webkit-app-region: no-drag;
+            width: 26px;
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            margin-left: -13px;
+            text-align: center;
+        }
+
+
+    }
+
+    .menu-modal {
+        width: 140px;
+        position: absolute;
+        bottom: 20px;
+        left: 60px;//前面这里用了 100%；导致视图找不到了！！！！！！！！！！！！
+        background: #393a3d;
+
+        .menu-item {
+            padding-left: 5px;
+            font-size: 14px;
+            color: rgb(138, 135, 132);
+            height: 50px;
+            line-height: 50px;
         }
     }
 
-    .right-content{
+
+    .right-content {
         flex: 1;
+        border: 1px solid rgba(229, 229, 229, 0.9);
+        box-shadow: 1px 1px 1px gray;
     }
+
+
 }

@@ -5,17 +5,17 @@
         <img src="../../assets/256x256.png" style="width:60px;height:60px;margin-bottom:20px;">
         <div class="login-title">京东试用</div>
         <FormItem prop="username">
-          <Input type="text" v-model="loginData.username" placeholder="Username">
+          <Input type="text" v-model="loginData.username" placeholder="Username" style="-webkit-app-region: no-drag;">
             <Icon type="ios-person-outline" slot="prepend"></Icon>
           </Input>
         </FormItem>
         <FormItem prop="password">
-          <Input type="password" v-model="loginData.password" placeholder="Password">
+          <Input type="password" v-model="loginData.password" placeholder="Password" style="-webkit-app-region: no-drag;">
             <Icon type="ios-lock-outline" slot="prepend"></Icon>
           </Input>
         </FormItem>
         <FormItem>
-          <Button type="primary" @click="login('loginForm')">登录</Button>
+          <Button type="primary" @click="login('loginForm')" style="-webkit-app-region: no-drag;">登录</Button>
         </FormItem>
       </Form>
     </div>
@@ -26,6 +26,15 @@
 //import SystemInformation from './LandingPage/SystemInformation'
 //import axios from 'axios'
 const { ipcRenderer } = require("electron");
+// 想要禁止 双击 最大化最小化的然后没有任何效果。
+// 微信的登录好像只是标题可以拖动其他地方不能拖动的，所以没有关系了，不做这个整个窗口拖动了
+// 微信聊天的界面的话是最左边回双击方法，不在聊天框的时候也是双击放大的，所以没有关系啦，
+// 但是在聊天窗口中双击是不会放大的哦，
+//const win = require('electron').remote.getCurrentWindow()
+//let el = document.getElementsByTagName('body')[0]
+//el.addEventListener('dblclick', () => {
+//  win.setIgnoreMouseEvents(true)
+//})
 
 export default {
   name: "login",
